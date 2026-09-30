@@ -1,0 +1,74 @@
+[
+  {
+    "question": "What is RAG?",
+    "expected_sources": ["rag.md"]
+  },
+  {
+    "question": "What is an embedding?",
+    "expected_sources": ["rag.md"]
+  },
+  {
+    "question": "How does retrieval work in a RAG system?",
+    "expected_sources": ["rag.md"]
+  },
+  {
+    "question": "How does gradient descent update model parameters?",
+    "expected_sources": ["machine_learning.md"]
+  },
+  {
+    "question": "What is overfitting?",
+    "expected_sources": ["machine_learning.md"]
+  },
+  {
+    "question": "What is logistic regression used for?",
+    "expected_sources": ["machine_learning.md"]
+  },
+  {
+    "question": "What is a Python decorator?",
+    "expected_sources": ["python.md"]
+  },
+  {
+    "question": "What is a generator in Python?",
+    "expected_sources": ["python.md"]
+  },
+  {
+    "question": "Why are tuples useful as dictionary keys?",
+    "expected_sources": ["python.md"]
+  },
+  {
+    "question": "How does a B-tree index speed up database searches?",
+    "expected_sources": ["databases.md"]
+  },
+  {
+    "question": "What is a primary key?",
+    "expected_sources": ["databases.md"]
+  },
+  {
+    "question": "What is a composite index?",
+    "expected_sources": ["databases.md"]
+  },
+  {
+    "question": "How does a hash map provide fast lookup?",
+    "expected_sources": ["dsa.md"]
+  },
+  {
+    "question": "How does the Two Sum algorithm use a hash map?",
+    "expected_sources": ["dsa.md"]
+  },
+  {
+    "question": "What is a sliding window technique?",
+    "expected_sources": ["dsa.md"]
+  },
+  {
+    "question": "What is the role of FastAPI in a RAG application?",
+    "expected_sources": ["ai_engineering.md", "rag.md"]
+  },
+  {
+    "question": "How should a RAG system be evaluated?",
+    "expected_sources": ["ai_engineering.md"]
+  },
+  {
+    "question": "What is the architecture of a Kubernetes cluster?",
+    "expected_sources": []
+  }
+]
