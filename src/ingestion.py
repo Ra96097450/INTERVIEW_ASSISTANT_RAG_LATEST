@@ -1,6 +1,7 @@
 from pathlib import Path
 
-KNOWLEDGE_DIR = Path("knowledge")
+BASE_DIR = Path(__file__).resolve().parent.parent
+KNOWLEDGE_DIR = BASE_DIR / "knowledge"
 
 
 def load_documents():
@@ -15,14 +16,3 @@ def load_documents():
         })
 
     return documents
-
-
-if __name__ == "__main__":
-    documents = load_documents()
-
-    print(f"Loaded {len(documents)} documents\n")
-
-    for document in documents:
-        print("Source:", document["source"])
-        print("Characters:", len(document["text"]))
-        print("-" * 50)

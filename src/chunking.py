@@ -1,4 +1,4 @@
-from ingestion import load_documents
+from .ingestion import load_documents
 
 
 def chunk_text(text, chunk_size=500):

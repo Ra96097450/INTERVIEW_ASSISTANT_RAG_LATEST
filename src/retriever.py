@@ -1,24 +1,27 @@
+from pathlib import Path
+
 import chromadb
-
-from sentence_transformers import SentenceTransformer
-from sentence_transformers import CrossEncoder
+from sentence_transformers import SentenceTransformer, CrossEncoder
 
 
-# Load the same embedding model
-model = SentenceTransformer("BAAI/bge-small-en-v1.5")
+BASE_DIR = Path(__file__).resolve().parent.parent
+CHROMA_DIR = BASE_DIR / "chroma_db"
 
-#Reranker 
+
+model = SentenceTransformer(
+    "BAAI/bge-small-en-v1.5"
+)
+
 reranker = CrossEncoder(
     "cross-encoder/ms-marco-MiniLM-L-6-v2"
 )
 
 
-# Connect to existing ChromaDB
 client = chromadb.PersistentClient(
-    path="./chroma_db"
+    path=str(CHROMA_DIR)
 )
 
-collection = client.get_collection(
+collection = client.get_or_create_collection(
     name="interviewiq"
 )
 

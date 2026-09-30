@@ -1,13 +1,26 @@
+from contextlib import asynccontextmanager
+
 from fastapi import FastAPI
 from pydantic import BaseModel, Field
 
+from .vector_store import ensure_vector_store
 from .rag import generate_answer
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+
+    print("Checking vector store...")
+
+    ensure_vector_store()
+
+    print("Vector store ready.")
+
+    yield
 
 
 app = FastAPI(
-    title="InterviewIQ RAG API",
-    description="AI Engineer knowledge assistant using RAG",
-    version="1.0"
+    title="InterviewIQ API",
+    lifespan=lifespan
 )
 
 

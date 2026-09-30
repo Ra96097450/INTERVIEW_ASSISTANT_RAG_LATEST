@@ -1,22 +1,24 @@
+from pathlib import Path
+
 import chromadb
 
-from embeddings import create_embeddings
+from .embeddings import create_embeddings
 
 
-# Create persistent Chroma database
+BASE_DIR = Path(__file__).resolve().parent.parent
+CHROMA_DIR = BASE_DIR / "chroma_db"
+
+
 client = chromadb.PersistentClient(
-    path="./chroma_db"
+    path=str(CHROMA_DIR)
 )
 
-
-# Create or load our collection
 collection = client.get_or_create_collection(
     name="interviewiq"
 )
 
 
 def store_embeddings():
-
     chunks, embeddings = create_embeddings()
 
     ids = []
@@ -24,16 +26,13 @@ def store_embeddings():
     metadatas = []
 
     for i, chunk in enumerate(chunks):
-
         ids.append(f"chunk_{i}")
-
         documents.append(chunk["text"])
-
         metadatas.append({
             "source": chunk["source"]
         })
 
-    collection.add(
+    collection.upsert(
         ids=ids,
         documents=documents,
         metadatas=metadatas,
@@ -43,9 +42,15 @@ def store_embeddings():
     print(f"Stored {len(chunks)} chunks in ChromaDB")
 
 
+def ensure_vector_store():
+    count = collection.count()
+
+    if count == 0:
+        print("ChromaDB is empty. Building vector store...")
+        store_embeddings()
+    else:
+        print(f"ChromaDB already contains {count} chunks.")
+
+
 if __name__ == "__main__":
-
-    store_embeddings()
-
-    print("Total records in ChromaDB:",
-          collection.count())
+    ensure_vector_store()

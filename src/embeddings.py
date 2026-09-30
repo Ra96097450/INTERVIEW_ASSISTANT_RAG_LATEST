@@ -1,6 +1,6 @@
 from sentence_transformers import SentenceTransformer
-from chunking import chunk_text
-from ingestion import load_documents
+from .chunking import chunk_text
+from .ingestion import load_documents
 
 
 # Load embedding model
