@@ -22,6 +22,18 @@ https://interview-assistant-rag-latest.onrender.com/docs
 
 ---
 
+## Application Screenshots
+
+### Streamlit Chat Interface
+
+![InterviewIQ Streamlit Demo](assets/Streamlit_Frontend_SS.png)
+
+### FastAPI Swagger Documentation
+
+![InterviewIQ FastAPI Swagger](assets/Swagger_API_SS.png)
+
+---
+
 # Features
 
 - Conversational RAG question answering
