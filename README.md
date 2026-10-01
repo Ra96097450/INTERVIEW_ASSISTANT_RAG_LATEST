@@ -5,6 +5,9 @@ InterviewIQ is an end-to-end **Retrieval-Augmented Generation (RAG)** applicatio
 The project demonstrates a complete production-style RAG workflow including document ingestion, chunking, embeddings, vector search, cross-encoder reranking, conversational query rewriting, grounded generation, evaluation, REST APIs, Docker, and cloud deployment.
 
 ---
+## Project Overview
+
+![InterviewIQ Architecture and Project Overview](assets/interviewiq_overview.png)
 
 ## Live Application
 
